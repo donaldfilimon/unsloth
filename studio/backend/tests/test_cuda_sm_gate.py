@@ -230,8 +230,8 @@ def _gated_backend(
     backend._find_llama_server_binary = lambda include_denied = False: binary
     backend._fit_off_retry_eligible = lambda *_a, **_kw: False
     backend.probe_server_capabilities = lambda _binary: {"found": True}
-    backend._record_server_pid = lambda _pid: None
-    backend._clear_server_pid = lambda: None
+    backend._record_server_pid = lambda _pid, _slot = "": None
+    backend._clear_server_pid = lambda _slot = "": None
     backend._prepare_cpu_fallback_launch = lambda *_a, **_kw: None
     backend._detect_audio_type_strict = lambda: None
     backend._apply_detected_audio = lambda _detected: True
